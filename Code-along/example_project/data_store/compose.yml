@@ -14,7 +14,7 @@ services:
     depends_on:
       - s3service
     entrypoint: >
-      /bin/sh -c ' /usr/bin/mc alias set s3service http://s3service:9000 "$${MINIO_ROOT_USER}" "$${MINIO_ROOT_PASSWORD}"; /usr/bin/mc mb s3service/"$${BUCKET_NAME}"; /usr/bin/mc admin user add s3service "$${ACCESS_KEY}" "$${SECRET_KEY}"; /usr/bin/mc admin policy attach s3service readwrite --user "$${ACCESS_KEY}"; exit 0; '
+      /bin/sh -c ' /usr/bin/mc alias set s3service http://s3service:9010 "$${MINIO_ROOT_USER}" "$${MINIO_ROOT_PASSWORD}"; /usr/bin/mc mb s3service/"$${BUCKET_NAME}"; /usr/bin/mc admin user add s3service "$${ACCESS_KEY}" "$${SECRET_KEY}"; /usr/bin/mc admin policy attach s3service readwrite --user "$${ACCESS_KEY}"; exit 0; '
     env_file: minio.env
 
 volumes:
